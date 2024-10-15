@@ -1,6 +1,7 @@
 <script>
     import Project from "../project/Project.svelte";
   import { Calculate } from "../scripts/calculate";
+    import { debouncedAutosave } from "../scripts/utils";
   import { app } from "../store";
 
   export let project;
@@ -20,6 +21,7 @@
     }
   }
 
+  $: debouncedAutosave($app);
 </script>
 
 <div
